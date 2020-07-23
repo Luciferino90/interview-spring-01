@@ -1,0 +1,50 @@
+spring:
+  application:
+    name: interview
+
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driverClassName: org.h2.Driver
+    database-platform: org.hibernate.dialect.H2Dialect
+    username: sa
+    password: sa
+    hibernate:
+      hbm2ddl:
+        auto: create
+
+  jackson:
+    date-format: "yyyy-MM-dd'T'HH:mm:ss.SSSX"
+    serialization:
+      write-dates-as-timestamps: false
+      WRITE_DATES_AS_TIMESTAMPS: false
+      indent-output: true
+    locale: it_IT
+    time-zone: GMT+1
+
+  h2:
+    console:
+      enabled: true
+
+server:
+  port: 8080
+  servlet:
+    context-path: /api/v2
+  compression:
+    enabled: true
+    mime-types: text/html,text/css,application/json
+    min-response-size: 2048
+management:
+  server:
+    port: 8081
+  endpoints:
+    web:
+      enabled: true
+      expose: info,health
+  endpoint:
+    health:
+      enabled: true
+
+logging:
+  level:
+    root: WARN
+    it.demo.interview: INFO
