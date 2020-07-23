@@ -36,7 +36,7 @@ public class TestClient {
 
     private final RestTemplate restTemplate;
 
-    TypeReference<Page<Document>> pagedResponse = new TypeReference<>() {};
+    TypeReference<Page<Document>> pagedResponse = new TypeReference<Page<Document>>() {};
 
     public TestClient() {
         this.restTemplate = new RestTemplate();

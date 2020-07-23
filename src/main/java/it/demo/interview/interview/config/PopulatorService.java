@@ -10,10 +10,7 @@ import reactor.core.Disposable;
 import reactor.core.publisher.Flux;
 
 import javax.annotation.PostConstruct;
-import java.util.Date;
-import java.util.List;
-import java.util.Random;
-import java.util.UUID;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.IntStream;
 
@@ -29,8 +26,9 @@ public class PopulatorService {
 
     @PostConstruct
     public Disposable randomize(){
-        List<String> usernames = List.of("tyler_durden", "marla_singer", "angel_face", "robert_paulson", "richard_chesler");
-        List<DocumentType> documentTypes = List.of(DOC, FE, PEC, SAN, LOT, REG);
+
+        List<String> usernames = Arrays.asList("tyler_durden", "marla_singer", "angel_face", "robert_paulson", "richard_chesler");
+        List<DocumentType> documentTypes = Arrays.asList(DOC, FE, PEC, SAN, LOT, REG);
 
         Random random = new Random();
 
