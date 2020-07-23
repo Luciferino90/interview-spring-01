@@ -9,8 +9,6 @@ import java.util.Optional;
 public interface DaoService<T> {
 
     T save(T toSave);
-    Optional<T> findLatestDocumentIdForDocumentType(DocumentType documentType);
-    Optional<T> findByDocumentIdAndDocumentType(Integer id, DocumentType documentType);
-    Page<T> findByUsername(String username, Pageable pageable);
+    T findById(String id);
 
 }

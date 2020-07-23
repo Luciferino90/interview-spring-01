@@ -23,16 +23,18 @@ public class DocumentDaoService implements DaoService<Document> {
     }
 
     @Override
+    public Document findById(String id) {
+        return documentRepository.findById(id).orElseThrow(() -> new RuntimeException("No document for id " + id));
+    }
+
     public Optional<Document> findLatestDocumentIdForDocumentType(DocumentType documentType) {
         return documentRepository.findLatestIdByDocumentType(documentType, PageRequest.of(0, 1)).stream().findFirst();
     }
 
-    @Override
     public Optional<Document> findByDocumentIdAndDocumentType(Integer id, DocumentType documentType) {
         return documentRepository.findByDocumentIdAndDocumentType(id, documentType);
     }
 
-    @Override
     public Page<Document> findByUsername(String username, Pageable pageable) {
         return documentRepository.findByUsername(username, pageable);
     }
